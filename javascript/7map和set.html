@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj = {
+        name: "John",
+        age: 30
+    };
+    // let result = Object.entries(obj);
+    // let myMap = new Map(result);
+    // console.log("Object.entries",result)
+    // console.log("Object",Object.fromEntries(myMap))
+    // console.log(myMap.entries())
+
+
+    let myMap = new Map();
+        myMap.set(obj,123);
+
+     let myweakmap = new WeakMap();
+     myweakmap.set(obj,"123");
+    // obj=null;
+ console.log(myMap.entries())
+
+</script>
+</body>
+</html>

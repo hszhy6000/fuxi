@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>农险</title>
+</head>
+<body>
+<script>
+    // class Counter {
+    //     constructor(limit) {
+    //         this.limit = limit;
+    //
+    //     }
+    //
+    //     [Symbol.iterator]() {
+    //         let count = 1, limit = this.limit;
+    //
+    //         return {
+    //             next() {
+    //                 if (count <= limit) {
+    //                     return {done: false, value: count++}
+    //                 } else {
+    //                     return {done: true, value: undefined}
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    //
+    // let counter = new Counter(3);
+    // for (let i of counter) {
+    //     console.log(i)
+    // }
+
+    const banji={
+        name:"一班",
+        stus:[
+            "xiaoming",
+            "xiaozheng",
+            "xiaowang",
+            "gousheng",
+            "dahai"
+        ],
+        [Symbol.iterator](){
+            let index = 0;
+            return {
+                next:()=>{
+                    // console.log(this.name,this.stus.length)
+                    if(index<this.stus.length){
+                        let result={ value:this.stus[index],done:false}
+                        index++;
+                        return result
+                    }else{
+                        return {value:undefined,done:true}
+                    }
+
+                }
+
+            }
+
+        }
+
+    };
+    for(let o of banji){
+        console.log(o)
+    }
+</script>
+</body>
+</html>

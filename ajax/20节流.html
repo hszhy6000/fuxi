@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<script>
+    $(document).on("mousemove", function (e) {
+        let timer = null;
+        if (timer) return;
+        timer = setTimeout(() => {
+            console.log(e.pageX, e.pageY);
+            timer = null;
+        }, 530);
+
+    });
+</script>
+</body>
+</html>

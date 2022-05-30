@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/axios.min.js"></script>
+</head>
+<body>
+<button id="btn1">发起get请求</button>
+<button id="btn2">发起post请求</button>
+<script>
+    let btn1 = document.querySelector("#btn1");
+    btn1.addEventListener("click", function () {
+        let url = "http://www.liulongbin.top:3006/api/get";
+        let paramsobj = {
+            name: 'zs',
+            age: 20
+        };
+        axios.get(url, {params: paramsobj}).then((res) => {
+            console.log(res.data);
+        });
+
+
+    });
+    let btn2 = document.querySelector("#btn2");
+    btn2.addEventListener("click", function () {
+        let url = "http://www.liulongbin.top:3006/api/post";
+        let dataobj = {
+            address: "河北",
+            location: "衡水"
+        };
+        axios.post(url,dataobj).then(function(res){
+            console.log(res)
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/template-web.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/html" id="tpl_user">
+    <h1>{{name}}-----
+        {{age}}
+    </h1>
+    {{@test}}
+
+    <div>
+        {{if flag==0}}
+        <h4>flag的值是0</h4>
+        {{else}}
+        aaa
+        {{/if}}
+    </div>
+    <hr>
+    <ul>
+        {{each hbody}}
+            <li>序号:{{$index}} 项目:{{$value}}</li>
+        {{/each}}
+    </ul>
+    <div>
+        注册日期:{{regDate | regTime }}
+    </div>
+</script>
+<script>
+    template.defaults.imports.regTime=function(data){
+        let y = data.getFullYear() +"年";
+        let m = data.getMonth()+1 +"月" ;
+        let d =data.getDate() + "日"
+        return y + m + d;
+    }
+    let data = {
+        name: "zs",
+        age: 18,
+        test: "<h4>这是测试</h4>",
+        flag: 2,
+        hbody: ["吃饭", "睡觉"],
+        regDate:new Date()
+    };
+    let htmlstr = template("tpl_user", data);
+    $("#container").html(htmlstr);
+
+
+
+</script>
+</body>
+</html>

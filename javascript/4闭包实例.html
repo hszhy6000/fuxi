@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let car =(function () {
+        let start = 13;
+        let total = 0;
+        return {
+            price(n) {
+                if (n <= 3) {
+                    total = start;
+                } else {
+                    total = start + (n - 3) * 5;
+                }
+                return total;
+            },
+            yd(){}
+
+        };
+    })();
+    console.log(car.price(1));
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let user = {
+        name: "john",
+        age: 3,
+        address: "河北",
+        toString(){
+            return `${this.name}的年纪是${this.age}`
+        }
+
+
+
+    };
+    let json = JSON.stringify(user, function (k, v) {
+        switch (k) {
+            case "name1":
+                return "john-1";
+                break;
+            default:
+                return v;
+
+        }
+    }, 10);
+
+    let u = JSON.parse(json, function (k, v) {
+        s = "name";
+        switch (k) {
+            case s:
+                return "bbb";
+            default:
+                return v;
+        }
+    });
+    function fn(){
+        let num = 0;
+        toString=function (){
+            return 111
+        }
+    }
+    alert(user)
+</script>
+</body>
+</html>

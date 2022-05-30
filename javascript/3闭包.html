@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul class="nav">
+        <li>榴莲1</li>
+        <li>榴莲2</li>
+        <li>榴莲3</li>
+        <li>榴莲4</li>
+    </ul>
+
+    <script>
+        let lis = document.querySelector(".nav").querySelectorAll("li");
+
+        // for(let i=0;i<lis.length;i++){
+        //     lis[i].onclick=function(){
+        //         console.log(i)
+        //     }
+        // }
+     for (var i =0;i<lis.length;i++){
+         (function (i){
+             lis[i].onclick=function(){
+                 console.log(i)
+             }
+         })(i)
+     }
+    </script>
+
+</body>
+</html>

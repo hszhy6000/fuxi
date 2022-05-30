@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/template-web.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/html" id="tpl_user">
+    <div>姓名:{{name}}</div>
+    <div>年龄:{{age}}</div>
+    <div>性别:{{ gender}}</div>
+    <div>住址:{{address }}</div>
+</script>
+<script>
+    let data = {
+        name: "张三",
+        age: 18,
+        gender: "男",
+        address: "河北衡水市故城县"
+
+    };
+    // function template(id, data) {
+    //     let str = $(id).html();
+    //     let pattern = /{{\s*([\w]+)\s*}}/;
+    //     let patterResult = null;
+    //     while (patterResult = pattern.exec(str)) {
+    //         str = str.replace(patterResult[0], data[patterResult[1]]);
+    //     }
+    //     return str;
+    // }
+
+    let htmlStr = template("tpl_user",data)
+    $("#container").html(htmlStr);
+</script>
+</body>
+</html>

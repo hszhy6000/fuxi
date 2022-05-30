@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <title>post</title>
+</head>
+<body>
+<button id="addbook"> 点击上传书名</button>
+<button id="getbooks">点击获取图书</button>
+<button id="getajax">使用 ajax 获取</button>
+<button id="postajax">使用 ajax 上传</button>
+<script>
+    $(function () {
+        $("#addbook").on("click", function () {
+            $.post("http://www.liulongbin.top:3006/api/addbook", {
+                bookname: '我的自传续',
+                author: '海底针',
+                publisher: '私家博务管'
+
+            }, function (res) {
+                console.log(res);
+            });
+            $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+                console.log(res);
+            });
+        });
+        $("#getbooks").on("click", function () {
+            $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+                console.log(res);
+            });
+        });
+        $("#getajax").on("click", function () {
+            $.ajax({
+                type: "get",
+                url: "http://www.liulongbin.top:3006/api/getbooks",
+                success: function (res) {
+                    console.log(res);
+                }
+            });
+        });
+        $("#postajax").on("click", function () {
+            $.ajax({
+                type: "post",
+                url: 'http://www.liulongbin.top:3006/api/addbook',
+                data: {
+                    bookname: '水浒传大闹天宫',
+                    author: '施耐庵',
+                    publisher: '上海图书出版社'
+
+                },
+                success(res){
+                    console.log(res)
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let xhr = new XMLHttpRequest();
+
+    xhr.timeout=3000;
+    xhr.ontimeout=function (){
+        alert("超时了")
+    }
+    xhr.open("get","http://www.liulongbin.top:3006/api/getbooks");
+    xhr.send();
+    xhr.onreadystatechange=function (){
+        if(this.readyState===4 && this.status===200){
+            console.log(this.responseText)
+        }
+    }
+</script>
+</body>
+</html>

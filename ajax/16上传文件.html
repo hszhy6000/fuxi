@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" id="fom1">
+    <input type="file" name="file" id="file1">
+    <button id="btnupload">上传</button>
+</form>
+<img src="" alt="" id="img" width="800">
+<script>
+    let btn = document.querySelector("#btnupload");
+    btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let files = document.querySelector("#file1").files;
+
+        if (files.length <= 0) {
+            return alert("选中文件");
+        }
+        let xhr = new XMLHttpRequest();
+        let fd = new FormData();
+        fd.append("avatar", files[0]);
+        xhr.open("post", "http://www.liulongbin.top:3006/api/upload/avatar");
+        xhr.timeout = 3000;
+        xhr.upload.onprogress = function (e) {
+            if (e.lengthComputable) {
+                let procomple = Math.ceil((e.loaded / e.total) * 100);
+                console.log(procomple);
+            }
+        };
+        xhr.send(fd);
+        xhr.onreadystatechange = function () {
+
+            if (this.readyState === 4 && this.status === 200) {
+                let data = JSON.parse(this.responseText);
+                if (data.status == 200) {
+                    document.querySelector("#img").src = "http://www.liulongbin.top:3006" + data.url;
+                    console.log(data);
+                } else {
+                    console.log(data.message);
+                }
+            }
+        };
+    });
+</script>
+</body>
+</html>

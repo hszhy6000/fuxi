@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="btn">点击</button>
+<script>
+
+    $(function () {
+        $("#btn").click(function () {
+            $.get('http://www.liulongbin.top:3006/api/getbooks', {id: 1}, function (res) {
+                console.log(res.msg, res.status);
+                console.log(res.data);
+            });
+        });
+        $("#btn").on("click",function(){
+                $.get("http://www.liulongbin.top:3006/api/getbooks",{id:1},function (res){
+                    console.log(res)
+                })
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // let cache = new Map();
+    // // let cache = new WeakMap();
+    // function process(obj) {
+    //     if (!cache.has(obj)) {
+    //         let result = obj;
+    //         cache.set(obj, result);
+    //     }
+    //     return cache.get(obj)
+    // }
+    // let obj={};
+    // let obj2={}
+    // let result1=process(obj);
+    // let result2=process(obj);
+    // obj=null;
+    // console.log(cache.size)
+
+    let set = new Set();
+
+    let john = { name: "John" };
+    let pete = { name: "Pete" };
+    let mary = { name: "Mary" };
+
+    // visits，一些访客来访好几次
+    set.add(john);
+    set.add(pete);
+    set.add(mary);
+    set.add(john);
+    set.add(mary);
+
+    // set 只保留不重复的值
+    // alert( set.size ); // 3
+    //
+    // for (let user of set) {
+    //     alert(user.name); // John（然后 Pete 和 Mary）
+    // }
+    console.log(set)
+</script>
+</body>
+</html>

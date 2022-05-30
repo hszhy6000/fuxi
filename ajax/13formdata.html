@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13 formdata测试</title>
+</head>
+<body>
+<script>
+    let fd = new FormData();
+    fd.append("name", "张三");
+    fd.append("age", 18);
+    let xhr = new XMLHttpRequest();
+    xhr.open("post", "http://www.liulongbin.top:3006/api/formdata");
+    xhr.send(fd);
+    xhr.onreadystatechange=function (){
+        if(this.readyState===4 && this.status===200){
+            console.log(this.response)
+        }
+    }
+</script>
+</body>
+</html>

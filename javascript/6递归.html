@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let data = [
+        {
+        id:1,
+        gname:"家电",
+            goods:[
+                {
+                    id:12,
+                    gname:"洗衣机",
+                    goods:[
+                        {
+                            id:121,
+                            gname:"海尔"
+                        }
+                    ]
+                }
+            ]
+        },{
+            id:2,
+            gname: "数码",
+            goods:[
+                {
+                    id:22,
+                    ganme:"相机",
+                }
+            ]
+
+        }
+    ];
+    let o = {};
+    function getGname(arr, id) {
+        arr.forEach(function (item) {
+            if (item.id == id) {
+                o=item;
+                return o;
+            }else if(item.goods && item.goods.length>0){
+               o= getGname(item.goods, id);
+            }
+        });
+        return o
+    }
+
+    console.log(getGname(data,121));
+
+</script>
+</body>
+</html>
